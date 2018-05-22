@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon.ico">
 
-	<title>Material Bootstrap Wizard by Creative Tim</title>
+	<title>PanRV - Pangenome-Reverse Vaccinology Pipeline</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
@@ -34,7 +34,7 @@
 	                <img src="assets/img/favicon.png">
 	            </div>
 	            <div class="brand">
-	                APPNAME
+	                PanRV
 	            </div>
 	        </div>
 	    </a>
@@ -45,18 +45,19 @@
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="green" id="wizardProfile">
-		                    <form action="google.pjo" method="POST">
+		                    <form action="google.pjo" method="POST" novalidate="novalidate">
 		                <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
 
 		                    	<div class="wizard-header">
 		                        	<h3 class="wizard-title">
-		                        	   APP NAME
+		                        	   PanRV
 		                        	</h3>
-									<h5>Some More text will go here...</h5>
+									<h5>Pangenome-Reverse Vaccinology Pipeline</h5>
 		                    	</div>
 								<div class="wizard-navigation">
 									<ul>
-			                            <li><a href="#pangenome_analysis" data-toggle="tab">PANGENOME ANALYSIS</a></li>
+										<li><a href="#job_details" data-toggle="tab">JOB INFO</a></li>
+										<li><a href="#pangenome_analysis" data-toggle="tab">PANGENOME ANALYSIS</a></li>
 			                            <li><a href="#reverse_vaccinology" data-toggle="tab">REVERSE VACCINOLOGY</a></li>
 										<li><a href="#cog_annotation" data-toggle="tab">COG ANNOTATION</a></li>
 										<li><a href="#antibiotiv_ressistance_association" data-toggle="tab">ANTIBIOTIC RESSISTANCE ASSOCIATION</a></li>
@@ -65,16 +66,34 @@
 
 		                        <div class="tab-content">
 									
-										<div class="tab-pane" id="pangenome_analysis">
-											<div class="form-horizontal p-h-xs">
-												<div class="row">
+									<div class="tab-pane" id="job_details" aria-invalid="true">
+										<div class="form-horizontal p-h-xs">
+											<div class="row">
 												<div class="form-group form-group-lg">
 													<label for="jobName" class="col-sm-3 control-label">Enter Job Name</label>
 													<div class="col-sm-9">
-														<input type="text" class="form-control" name="jobName">
+														<input type="text" class="form-control" name="jobName" aria-required="true" minlength="1" required>
+														<span class="material-input"></span>
 													</div>
 												</div>
+											</div>
+											<div class="row">
+												<div class="form-group form-group-lg">
+													<label for="userEmail" class="col-sm-3 control-label">Email</label>
+													<div class="col-sm-9">
+														<input type="email" class="form-control" name="userEmail" aria-required="true" minlength="3" required>
+														<span class="material-input"></span>
+													</div>
 												</div>
+											</div>
+										</div>
+									</div>
+
+										<!--  -->
+										<!--  -->
+
+										<div class="tab-pane" id="pangenome_analysis">
+											<div class="form-horizontal p-h-xs">
 												<div class="row">
 													<div class="form-group form-group-lg">
 														<label for="inputFolder" class="col-sm-3 control-label">Select Input Folder</label>
@@ -88,6 +107,7 @@
 														<label for="reverse_vaccinology_category" class="col-sm-3 control-label">Select Category for Reverse Vaccinology</label>
 														<div class="col-sm-9">
 															<select name="reverse_vaccinology_category" class="form-control">
+																<option value="null">Select</option>
 																<option value="coregenome">Coregenome</option>
 																<option value="pangenome">Pangenome</option>
 																<option value="dispensible_genes">Dispensible Genes</option>
@@ -96,13 +116,92 @@
 														</div>
 													</div>
 												</div>
+												<div class="row text-center">
+													<input type='submit' class='btn btn-fill btn-warning btn-wd' name='finish' value='Submit' />
+												</div>
 											</div>
 										</div>
 										<!-- pangenome_analysis ENDS -->
 
 										<div class="tab-pane" id="reverse_vaccinology">
+											<div class="row">
+												<div class="col-sm-6 col-xs-12">
+													<div class="input-group checkbox-RV">
+														<span class="input-group-addon">
+															<input type="checkbox" class="RV_checkbox" data-for="human_non_homology">
+														</span>
+														<span>Human Non-homology</span>
+													</div>
+
+
+													<div class="input-group checkbox-RV">
+														<span class="input-group-addon">
+															<input type="checkbox" class="RV_checkbox" data-for="gutflora_non_homology">
+														</span>
+														<span>GutFlora Non-homology</span>
+													</div>
+
+
+													<div class="input-group checkbox-RV">
+														<span class="input-group-addon">
+															<input type="checkbox" class="RV_checkbox" data-for="localization">
+														</span>
+														<span>Localization</span>
+													</div>
+
+
+													<div class="input-group checkbox-RV">
+														<span class="input-group-addon">
+															<input type="checkbox" class="RV_checkbox" data-for="essentiality">
+														</span>
+														<span>Essentiality</span>
+													</div>
+												</div>
+												<div class="col-sm-6 col-xs-12">
+														<div class="input-group checkbox-RV">
+															<span class="input-group-addon">
+																<input type="checkbox" class="RV_checkbox" data-for="virulence">
+															</span>
+															<span>Virulence</span>
+														</div>
+	
+	
+														<div class="input-group checkbox-RV">
+															<span class="input-group-addon">
+																<input type="checkbox" class="RV_checkbox" data-for="helices">
+															</span>
+															<span>Helices</span>
+														</div>
+	
+	
+														<div class="input-group checkbox-RV">
+															<span class="input-group-addon">
+																<input type="checkbox" class="RV_checkbox" data-for="weight_estimation">
+															</span>
+															<span>Weight Estimation</span>
+														</div>
+	
+	
+														<div class="input-group checkbox-RV">
+															<span class="input-group-addon">
+																<input type="checkbox" class="RV_checkbox" data-for="epitope_mapping">
+															</span>
+															<span>Epitope Mapping</span>
+														</div>
+													
+												</div>
+											</div>
+											<div class="row">
+												<div class="form-group form-group-lg">
+													<label for="inputFolder" class="col-sm-3 control-label">Select Input Folder</label>
+													<div class="col-sm-9">
+														<input type="file" class="btn btn-success" name="RV_inputfile" style="opacity:1;position:inherit">
+													</div>
+												</div>
+											</div>
+
 											<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-												<div class="panel panel-default">
+												<div class="panel panel-default human_non_homology">
 													<div class="panel-heading" role="tab" id="headingOne">
 														<h4 class="panel-title">
 															<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -138,7 +237,7 @@
 													</div>
 												</div>
 
-												<div class="panel panel-default">
+												<div class="panel panel-default gutflora_non_homology">
 													<div class="panel-heading" role="tab" id="headingTwo">
 													<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -173,7 +272,7 @@
 													</div>
 												</div>
 
-												<div class="panel panel-default">
+												<div class="panel panel-default localization">
 													<div class="panel-heading" role="tab" id="headingThree">
 													<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -222,7 +321,7 @@
 													</div>
 												</div>
 
-												<div class="panel panel-default">
+												<div class="panel panel-default essentiality">
 													<div class="panel-heading" role="tab" id="essentiality">
 													<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEssentiality" aria-expanded="false" aria-controls="collapseTwo">
@@ -258,9 +357,9 @@
 												</div>
 
 
-												<div class="panel panel-default">
+												<div class="panel panel-default virulence">
 													<div class="panel-heading" role="tab" id="virulence">
-													<h4 class="panel-title">
+														<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseVirulence" aria-expanded="false" aria-controls="collapseTwo">
 														Virulence
 														</a>
@@ -293,9 +392,9 @@
 													</div>
 												</div>
 
-												<div class="panel panel-default">
+												<div class="panel panel-default helices">
 													<div class="panel-heading" role="tab" id="helices">
-													<h4 class="panel-title">
+														<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHelices" aria-expanded="false" aria-controls="collapseTwo">
 														Helices
 														</a>
@@ -309,7 +408,7 @@
 													</div>
 												</div>
 
-												<div class="panel panel-default">
+												<div class="panel panel-default weight_estimation">
 													<div class="panel-heading" role="tab" id="weightEstimation">
 													<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWeightEstimation" aria-expanded="false" aria-controls="collapseTwo">
@@ -325,7 +424,7 @@
 												</div>
 												
 												<!--  -->
-												<div class="panel panel-default">
+												<div class="panel panel-default epitope_mapping">
 													<div class="panel-heading" role="tab" id="epitope_mapping">
 													<h4 class="panel-title">
 														<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEpitopeMapping" aria-expanded="false" aria-controls="collapseTwo">
@@ -366,11 +465,9 @@
 														</div>
 													</div>
 												</div>
-
-
-
-
-
+											</div>
+											<div class="row text-center">
+												<input type='submit' class='btn btn-fill btn-warning btn-wd' name='finish' value='Submit' />
 											</div>
 										</div>
 										<!-- Reverse Vaccinology Ends -->
@@ -378,12 +475,14 @@
 										<div class="tab-pane" id="cog_annotation">
 											<div class="form-horizontal p-h-xs">
 											<div class="row">
-												<div class="form-group form-group-lg">
-													<label for="CA_jobname" class="col-sm-3 control-label">Job Name</label>
-													<div class="col-sm-9">
-														<input type="text" class="form-control" name="CA_jobname">
+													<div class="row">
+														<div class="form-group form-group-lg">
+															<label for="inputFolder" class="col-sm-3 control-label">Select Input Folder</label>
+															<div class="col-sm-9">
+																<input type="file" class="btn btn-success" name="CA_inputfile" style="opacity:1;position:inherit">
+															</div>
+														</div>
 													</div>
-												</div>
 											</div>
 											<div class="row">
 												<h4 class="text-center">Threshold Values</h4>
@@ -408,15 +507,18 @@
 													</div>
 												</div>
 											</div>
+											<div class="row text-center">
+												<input type='submit' class='btn btn-fill btn-warning btn-wd' name='finish' value='Submit' />
+											</div>
 											</div>
 										</div>
 										<div class="tab-pane" id="antibiotiv_ressistance_association">
 											<div class="form-horizontal p-h-xs">
 											<div class="row">
 												<div class="form-group form-group-lg">
-													<label for="ARA_jobname" class="col-sm-3 control-label">Job Name</label>
+													<label for="inputFolder" class="col-sm-3 control-label">Select Input Folder</label>
 													<div class="col-sm-9">
-														<input type="text" class="form-control" name="ARA_jobname">
+														<input type="file" class="btn btn-success" name="ARA_inputfile" style="opacity:1;position:inherit">
 													</div>
 												</div>
 											</div>
@@ -450,7 +552,7 @@
 		                        <div class="wizard-footer">
 		                            <div class="pull-right">
 		                                <input type='button' class='btn btn-next btn-fill btn-success btn-wd' name='next' value='Next' />
-		                                <input type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish' value='Finish' />
+		                                <input type='submit' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' value='Submit' />
 		                            </div>
 
 		                            <div class="pull-left">
@@ -483,5 +585,6 @@
 
     <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/checks.js"></script>
 
 </html>

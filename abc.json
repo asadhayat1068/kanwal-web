@@ -1,0 +1,8 @@
+- separate job name with email
+- add submit button to all tabs
+- add upload file field to RV VA and ARA,
+- VA ARA file upload can fallback to RV
+
+
+$_POST['jobName'] <- 
+$_POST['reverse_vaccinology_category'] <- 
